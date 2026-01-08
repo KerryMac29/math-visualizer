@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f0f2f5; }
+        .container { display: flex; gap: 20px; flex-wrap: wrap; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
+        .box-grid { display: grid; grid-template-columns: 100px 100px; gap: 10px; margin-top: 20px; }
+        .box { border: 2px solid #3498db; padding: 15px; text-align: center; border-radius: 8px; position: relative; }
+        .box::before { content: attr(data-label); position: absolute; top: -10px; left: 5px; background: white; font-size: 10px; color: #3498db; }
+        .highlight { animation: glow 1.5s infinite alternate; }
+        @keyframes glow { from { background: #e3f2fd; } to { background: #bbdefb; } }
+        .arrow { font-size: 24px; text-align: center; margin: 10px; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+
+<h2>Math Visualizer: Concepts vs. Algorithms</h2>
+
+<div class="container">
+    <div class="card">
+        <h3>Multiplication: 24 x 15</h3>
+        <p><strong>Area Model (The "Why")</strong></p>
+        <div class="box-grid">
+            <div class="box" data-label="20 x 10">200</div>
+            <div class="box" data-label="4 x 10">40</div>
+            <div class="box" data-label="20 x 5">100</div>
+            <div class="box" data-label="4 x 5">20</div>
+        </div>
+        <p>Sum: 200 + 40 + 100 + 20 = <b>360</b></p>
+        <hr>
+        <p><strong>Standard Algorithm (The "How")</strong></p>
+        <pre style="font-size: 18px;">
+    24
+  x 15
+  ----
+   120  <-- (5 x 24)
+  +240  <-- (10 x 24 - notice the placeholder!)
+  ----
+   360
+        </pre>
+    </div>
+
+    <div class="card">
+        <h3>Division: 456 ÷ 4</h3>
+        <p><strong>Partial Quotients (The "Groups")</strong></p>
+        <div id="div-steps">
+            How many 4s in 456? <br>
+            - 100 groups (400) -> 56 left <br>
+            - 10 groups (40) -> 16 left <br>
+            - 4 groups (16) -> 0 left <br>
+            <strong>Total: 114</strong>
+        </div>
+        <hr>
+        <p><strong>Inverse check:</strong> 114 x 4 = 456</p>
+    </div>
+</div>
+
+</body>
+</html>
